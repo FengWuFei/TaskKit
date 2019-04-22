@@ -4,7 +4,7 @@ public protocol Task: class {
     var taskArguments: [String] { get }
     var identifier: String { get }
     var option: TaskParsedOptionsInfo { get }
-    var onError: Delegate<Error, Void> { get }
+    var onError: ((Error) -> Void)? { get }
     var process: Process? { get set }
 }
 
@@ -39,7 +39,7 @@ extension Task {
                 try process.run()
             } catch {
                 // onError
-                onError.call(error)
+                onError?(error)
             }
         } else {
             process.launchPath = option.executablePath
