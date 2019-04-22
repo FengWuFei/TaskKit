@@ -23,8 +23,8 @@ extension Task {
         //setup and run
         switch option.taskType {
         case .forever:
-            process.terminationHandler = { p in
-                self.run()
+            process.terminationHandler = {[weak self] _ in
+                self?.run()
             }
         default: break
         }
