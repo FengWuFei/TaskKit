@@ -1,7 +1,7 @@
 import Foundation
 
 public class TaskManager {
-    public var shared = TaskManager()
+    public static var shared = TaskManager()
     private var tasks: [String: Task] = [:]
     private var lock: Lock = Lock()
     private init() {}
