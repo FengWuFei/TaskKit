@@ -32,10 +32,10 @@ public class TaskManager {
         taskValues.forEach { $0.run() }
     }
     
-    public func currentTasks() -> [Task] {
+    public func currentTasks() -> [String: Task] {
         lock.lock()
-        let taskValues = tasks.values
+        let taskValues = tasks
         defer { lock.unlock() }
-        return taskValues.sorted { $0.identifier > $1.identifier }
+        return taskValues
     }
 }
