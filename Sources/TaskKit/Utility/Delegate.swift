@@ -1,7 +1,7 @@
 import Foundation
 
 public class Delegate<Input, Output> {
-    init() {}
+    public init() {}
     
     private var block: ((Input) -> Output?)?
     
