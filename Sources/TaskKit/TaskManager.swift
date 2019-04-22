@@ -32,6 +32,10 @@ public class TaskManager {
         taskValues.forEach { $0.run() }
     }
     
+    public func cancelAll() {
+        tasks.keys.forEach { removeTask(with: $0) }
+    }
+    
     public func currentTasks() -> [String: Task] {
         lock.lock()
         let taskValues = tasks
