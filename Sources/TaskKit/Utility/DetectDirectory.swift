@@ -1,6 +1,6 @@
 import Foundation
 
-func detectDirectory() -> String {
+public func detectDirectory() -> String {
     let fileBasedWorkDir: String?
     
     #if Xcode
