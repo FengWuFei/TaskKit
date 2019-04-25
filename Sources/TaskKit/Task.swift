@@ -21,13 +21,12 @@ extension Task {
         process.arguments = taskArguments
         
         //setup and run
-        switch option.taskType {
-        case .forever:
+        if case .forever = option.taskType {
             process.terminationHandler = {[weak self] _ in
                 self?.run()
             }
-        default: break
         }
+        
         if #available(OSX 10.13, *) {
             if let path = option.executablePath {
                 process.executableURL = URL(fileURLWithPath: path)

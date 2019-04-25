@@ -1,6 +1,6 @@
 import Foundation
 
-public enum TaskType {
+public enum TaskType: Int {
     case forever
     case disposable
 }
